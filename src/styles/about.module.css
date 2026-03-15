@@ -1,5 +1,6 @@
 #aboutContainer {
-	width: 60%;
+	width: 80%;
+	max-width: 1000px;
 	padding: 40px 60px;
 	margin: 50px auto;
 	background-color: var(--mica-bg);
@@ -7,19 +8,34 @@
 	border: var(--mica-border);
 	border-radius: 20px;
 	box-shadow: var(--shadow-base);
+	display: flex;
+	align-items: center;
+	gap: 40px;
+}
 
-	p {
-		font-size: 1.2em;
-	}
+.aboutSprite {
+	max-height: 400px;
+	width: auto;
+	object-fit: contain;
+	filter: drop-shadow(0 0 15px var(--glow-color));
+}
 
-	.anchor {
-		text-decoration: underline;
-		font-weight: bold;
-		color: white;
-	}
-	span {
-		font-weight: bold;
-	}
+.textContent {
+	flex: 1;
+}
+
+.textContent p {
+	font-size: 1.2em;
+}
+
+.textContent .anchor {
+	text-decoration: underline;
+	font-weight: bold;
+	color: white;
+}
+
+.textContent span {
+	font-weight: bold;
 }
 
 @media only screen and (max-width: 768px) {
@@ -27,17 +43,25 @@
 		width: 100%;
 		position: relative;
 		text-align: left;
+		flex-direction: column;
+		padding: 20px;
+		gap: 20px;
+	}
 
-		h1 {
-			font-size: 2.12em;
-			margin-bottom: 25px;
-		}
+	.aboutSprite {
+		max-height: 250px;
+		margin-top: 10px;
+	}
 
-		p {
-			font-size: 1.1em;
-		}
-		a {
-			font-size: 1em;
-		}
+	.textContent h1 {
+		font-size: 2.12em;
+		margin-bottom: 25px;
+	}
+
+	.textContent p {
+		font-size: 1.1em;
+	}
+	.textContent a {
+		font-size: 1em;
 	}
 }

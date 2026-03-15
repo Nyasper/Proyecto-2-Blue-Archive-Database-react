@@ -95,6 +95,7 @@ export const categoriesNoUrl: (keyof Student)[] = [
 	'imageFullUrl',
 	'imageProfileUrl',
 	'smallImageUrl',
+	'releaseDate',
 	'audioUrl',
 	'pageUrl',
 	'age',

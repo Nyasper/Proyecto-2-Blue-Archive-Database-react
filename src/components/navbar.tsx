@@ -28,14 +28,24 @@ export function Navbar() {
 					<li key={link.name} className={styles.navLi}>
 						<Link
 							to={link.path}
-							className={`${styles.aNavbar} ${
-								currentRoute === link.path ? styles.currentRoute : null
-							}`}
+							className={`${styles.aNavbar} ${currentRoute === link.path ? styles.currentRoute : ''
+								}`}
 						>
 							{link.name}
 						</Link>
 					</li>
 				))}
+				{currentRoute !== '/' && (
+					<li className={styles.navLi} style={{ marginLeft: 'auto', marginRight: '40px' }}>
+						<Link
+							to="/about"
+							className={`${styles.aNavbar} ${currentRoute === '/about' ? styles.currentRoute : ''
+								}`}
+						>
+							About
+						</Link>
+					</li>
+				)}
 			</ul>
 		</nav>
 	);

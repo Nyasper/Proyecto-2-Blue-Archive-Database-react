@@ -1,42 +1,43 @@
 import { Link } from 'react-router-dom';
 import styles from '@/styles/charaList.module.css';
-import type { RefObject } from 'react';
 import type { CharacterImageGlobalState } from '../stores/storeContext';
+
 export function CharaListSideComponent({
 	currentChara,
-	selectedImageRef,
 }: Props) {
-	return currentChara && currentChara.name && currentChara.url ? (
-		<div id={styles.selectedImageContainer}>
-			<h2 className="centerText">
-				<b className="bold">selected: {currentChara.name}</b>
-			</h2>
-			<Link to={currentChara.name} className={styles.animationSlide}>
-				<p>Click to view details</p>
-				<img
-					className={styles.selectedImage}
-					ref={selectedImageRef}
-					src={currentChara.url}
-				/>
-			</Link>
-		</div>
-	) : (
-		<div id={styles.selectedImageContainer}>
-			<h2
-				className="centerText"
-				style={{
-					height: '100%',
-					display: 'grid',
-					alignContent: 'center',
-				}}
-			>
-				<b className="bold">Select an Image</b>
-			</h2>
-		</div>
+	const hasChara = currentChara && currentChara.name && currentChara.url;
+
+	return (
+		<aside id={styles.selectedImageContainer} className={hasChara ? styles.activePanel : styles.inactivePanel}>
+			{hasChara ? (
+				<>
+					<h2 className={styles.sideTitle}>{currentChara.name}</h2>
+					<p className={styles.sideSubtitle}>Selected Character</p>
+					
+					<Link to={currentChara.name} className={styles.imageLinkWrapper}>
+						<img
+							key={currentChara.url}
+							className={`${styles.selectedImage} ${styles.animationSlide}`}
+							src={currentChara.url}
+							alt={currentChara.name}
+							draggable="false"
+						/>
+						<div className={styles.clickOverlay}>
+							<span>View Details</span>
+						</div>
+					</Link>
+				</>
+			) : (
+				<div className={styles.emptyState}>
+					<div className={styles.emptyStateIcon}>✦</div>
+					<h2 className={styles.sideTitle}>Select an Image</h2>
+					<p className={styles.sideSubtitle}>Click any character to preview</p>
+				</div>
+			)}
+		</aside>
 	);
 }
 
 interface Props {
 	currentChara: CharacterImageGlobalState;
-	selectedImageRef: RefObject<HTMLImageElement | null>;
 }

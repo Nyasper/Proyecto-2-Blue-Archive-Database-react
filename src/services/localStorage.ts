@@ -1,16 +1,16 @@
 export class LocalStorageHandler {
   #key = '';
 
-  constructor(key) {
+  constructor(key: string) {
     this.#key = key;
   }
 
-  set value(value) {
+  set value(value: any) {
     localStorage.setItem(this.#key, JSON.stringify(value));
   }
 
   get value() {
-    return this.exists() ? JSON.parse(localStorage.getItem(this.#key)) : null;
+    return this.exists() ? JSON.parse(localStorage.getItem(this.#key) || '{}') : null;
   }
 
   remove() {

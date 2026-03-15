@@ -1,19 +1,15 @@
 import CharaItem from './charaItem';
 import styles from '@/styles/charaList.module.css';
-import { useContext, useRef, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { StoreContext } from '../stores/storeContext';
 import { CharaListSideComponent } from './charaListSideComponent';
-import { useEffect } from 'react';
 import { Header } from './header';
 import type { Student } from '../models/student.model';
 import { getStudentMedia } from '../services/studentUtils';
 import { useIsMobile } from '../hooks/useIsMobile';
 
 export function CharaList({ title, students, error }: Props) {
-	// Right Side Image Preview
 	const store = useContext(StoreContext);
-	const selectedImageRef = useRef<HTMLImageElement>(null);
-
 	const isMobile: boolean = useIsMobile();
 
 	const handleClick = (chara: Student) => {
@@ -22,15 +18,9 @@ export function CharaList({ title, students, error }: Props) {
 			chara.charaName,
 			getStudentMedia(chara, 'imgFull')
 		);
-
-		if (selectedImageRef?.current?.classList) {
-			selectedImageRef.current.classList.remove(styles.animationSlide);
-			void selectedImageRef.current.offsetWidth;
-			selectedImageRef.current.classList.add(styles.animationSlide);
-		}
 	};
 
-	// reset the global state after component desmount
+	// reset the global state after component unmount
 	useEffect(() => {
 		return () => {
 			if (!store) return;
@@ -48,22 +38,22 @@ export function CharaList({ title, students, error }: Props) {
 
 	if (error) {
 		content = (
-			<>
+			<div className={styles.statusMessage}>
 				<h2>Error</h2>
 				<p>{error}</p>
-			</>
+			</div>
 		);
 	} else if (students.length === 0 && !!store?.loading) {
 		content = (
-			<>
-				<h2>Loading</h2>
-			</>
+			<div className={styles.statusMessage}>
+				<h2>Loading...</h2>
+			</div>
 		);
 	} else if (students.length === 0 && store?.loading) {
 		content = (
-			<>
+			<div className={styles.statusMessage}>
 				<h2>No Data</h2>
-			</>
+			</div>
 		);
 	} else {
 		content = (
@@ -95,7 +85,6 @@ export function CharaList({ title, students, error }: Props) {
 				<section>{content}</section>
 				<CharaListSideComponent
 					currentChara={store?.currentChara!}
-					selectedImageRef={selectedImageRef}
 				/>
 			</div>
 		</>
