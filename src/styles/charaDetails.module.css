@@ -8,9 +8,11 @@
 	width: 60%;
 	max-height: 80vh;
 	height: 80vh;
-	/* margin: 100px auto; */
-	border: 1px solid white;
+	background-color: var(--mica-bg);
+	backdrop-filter: var(--mica-blur);
+	border: var(--mica-border);
 	border-radius: 20px;
+	box-shadow: var(--shadow-base);
 }
 
 .imgContainer {

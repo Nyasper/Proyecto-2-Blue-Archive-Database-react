@@ -30,16 +30,16 @@
 	margin: 15px;
 	border-radius: 20px;
 	border: 2px solid white;
-	filter: drop-shadow(1px 1px 1px white);
+	filter: drop-shadow(0 0 10px var(--glow-color));
 	animation: homeAnimation 2s infinite ease;
 }
 
 @keyframes homeAnimation {
 	0% {
-		filter: drop-shadow(1px 1px 1px white);
+		filter: drop-shadow(0 0 10px var(--glow-color));
 	}
 	50% {
-		filter: drop-shadow(2px 2px 6px white);
+		filter: drop-shadow(0 0 25px var(--glow-color));
 	}
 }
 

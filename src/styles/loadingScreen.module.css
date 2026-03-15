@@ -14,6 +14,7 @@
 	pointer-events: none;
 	font-size: 4em;
 	color: white;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px var(--glow-color);
 }
 
 @keyframes loadingAnimation {

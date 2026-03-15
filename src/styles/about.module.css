@@ -1,7 +1,12 @@
 #aboutContainer {
 	width: 60%;
-	padding: 10px 60px;
-	margin: 0 auto;
+	padding: 40px 60px;
+	margin: 50px auto;
+	background-color: var(--mica-bg);
+	backdrop-filter: var(--mica-blur);
+	border: var(--mica-border);
+	border-radius: 20px;
+	box-shadow: var(--shadow-base);
 
 	p {
 		font-size: 1.2em;

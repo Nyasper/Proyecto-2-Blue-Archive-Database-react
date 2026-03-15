@@ -1,7 +1,10 @@
 table {
 	table-layout: fixed;
 	border-collapse: collapse;
-	background-color: #102041;
+	background-color: var(--mica-bg);
+	backdrop-filter: var(--mica-blur);
+	border: var(--mica-border);
+	box-shadow: var(--shadow-base);
 	border-radius: 10px;
 	border-spacing: 0;
 	/* width: 100%; */
@@ -19,14 +22,21 @@ table td {
 }
 
 button {
-	background-color: #102041;
+	background-color: var(--mica-bg);
+	backdrop-filter: var(--mica-blur);
 	padding: 5px;
-	border: 1px solid white;
+	border: var(--mica-border);
 	border-radius: 20px;
 	margin: 0;
 	margin-left: 10px;
 	cursor: pointer;
+	color: white;
+	transition: all 0.2s ease;
+}
+button:hover {
+	background-color: var(--mica-bg-hover);
+	box-shadow: var(--glow-shadow);
 }
 button:active {
-	background-color: rgb(14, 14, 14);
+	background-color: rgba(0, 0, 0, 0.2);
 }

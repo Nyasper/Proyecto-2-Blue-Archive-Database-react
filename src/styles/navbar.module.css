@@ -1,7 +1,10 @@
 #navBarUl {
 	width: 100%;
 	position: fixed;
-	background-color: rgba(0, 68, 133, 1);
+	background-color: var(--mica-bg);
+	backdrop-filter: var(--mica-blur);
+	border-bottom: var(--mica-border);
+	box-shadow: var(--shadow-base);
 	z-index: 10;
 	display: flex;
 	align-items: center;
@@ -20,12 +23,14 @@
 }
 
 .currentRoute {
-	border-bottom: 1px solid rgb(255, 255, 255);
+	border-bottom: 2px solid white;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px var(--glow-color);
 }
 
 .aNavbar:hover {
 	cursor: pointer;
 	border-bottom: 2px solid white;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px var(--glow-color);
 }
 #logoImgContainer {
 	height: 100%;

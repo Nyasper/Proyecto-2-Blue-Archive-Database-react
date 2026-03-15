@@ -25,7 +25,7 @@ a {
 #categoryUlList > li:hover {
 	border-radius: 20px;
 	outline: 1px solid white;
-	filter: drop-shadow(2px 2px 8px white);
+	filter: drop-shadow(0 0 15px var(--glow-color));
 }
 
 #categoryUlList a {
@@ -45,7 +45,7 @@ a {
 }
 
 #categoryUlList img:hover {
-	filter: drop-shadow(white 0 0 12px);
+	filter: drop-shadow(0 0 15px var(--glow-color));
 	transition: 0.01s all;
 }
 

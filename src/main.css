@@ -1,6 +1,16 @@
 :root {
 	font-family: 'Open Sans', sans-serif;
 	color-scheme: light dark;
+
+	/* Mica and Glow Effect Variables */
+	--mica-bg: rgba(255, 255, 255, 0.08);
+	--mica-bg-hover: rgba(255, 255, 255, 0.15);
+	--mica-border: 1px solid rgba(255, 255, 255, 0.2);
+	--mica-blur: blur(12px);
+	--glow-color: rgba(94, 169, 255, 0.6);
+	--glow-shadow: 0 0 15px var(--glow-color), 0 0 30px var(--glow-color);
+	--glow-shadow-hover: 0 0 20px var(--glow-color), 0 0 40px var(--glow-color);
+	--shadow-base: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 * {

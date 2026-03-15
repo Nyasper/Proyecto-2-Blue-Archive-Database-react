@@ -2,6 +2,19 @@
 	margin: 10px 10px;
 	width: 120px;
 	overflow: hidden;
+	background-color: var(--mica-bg);
+	backdrop-filter: var(--mica-blur);
+	border: var(--mica-border);
+	border-radius: 20px;
+	box-shadow: var(--shadow-base);
+	transition: all 0.2s ease;
+	padding-bottom: 8px;
+}
+
+.charaItemContainer:hover {
+	background-color: var(--mica-bg-hover);
+	box-shadow: var(--glow-shadow-hover);
+	transform: translateY(-2px);
 }
 
 .charaItemText {
