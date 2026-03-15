@@ -38,5 +38,5 @@ export function CharaListSideComponent({
 
 interface Props {
 	currentChara: CharacterImageGlobalState;
-	selectedImageRef: RefObject<HTMLImageElement>;
+	selectedImageRef: RefObject<HTMLImageElement | null>;
 }

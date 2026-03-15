@@ -24,3 +24,11 @@ client
 *.njsproj
 *.sln
 *.sw?
+
+public/data/data_changes.md
+public/data/new.students.json
+public/data/old.students.json
+public/data/newVersionJSONExample.json
+public/data/oldVersionJSONExample.json
+public/data/newVersionJSONExample.json
+

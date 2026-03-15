@@ -12,7 +12,7 @@ import { useIsMobile } from '../hooks/useIsMobile';
 export function CharaList({ title, students, error }: Props) {
 	// Right Side Image Preview
 	const store = useContext(StoreContext);
-	const selectedImageRef = useRef<HTMLImageElement | null>(null);
+	const selectedImageRef = useRef<HTMLImageElement>(null);
 
 	const isMobile: boolean = useIsMobile();
 

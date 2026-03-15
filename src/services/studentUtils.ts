@@ -1,4 +1,4 @@
-import type { MediaType, Student, WeaponType } from '../models/student.model';
+import type { MediaType, Student } from '../models/student.model';
 
 //get all the keys that doesn't are undefined.
 export function getKeysWithoutNull(
@@ -45,9 +45,7 @@ export function getPropertyDataDistinct(
 }
 
 export function handleCategoryName(categoryName: keyof Student): string {
-	if (categoryName === 'combatClass') return 'Combat class';
-	else if (categoryName === 'weaponType') return 'Weapon type';
-	else if (categoryName === 'skinSet') return 'Skin';
+	if (categoryName === 'skinSet') return 'Skin';
 	else if (categoryName === 'releaseDate') return 'Release date';
 	else if (categoryName === 'audioUrl') return 'Audio url';
 	else if (categoryName === 'charaName') return 'Character name';
@@ -63,25 +61,9 @@ export function handleCategoryValue(
 	if (
 		categoryName === 'charaName' ||
 		categoryName === 'skinSet' ||
-		categoryName === 'role' ||
 		categoryName === 'voice'
 	) {
 		return categoryValue.replaceAll('_', ' ');
-	} else if (categoryName === 'weaponType') {
-		const weaponTypeMapping: Record<WeaponType, string> = {
-			HG: 'handgun',
-			SG: 'shotgun',
-			MG: 'machine gun',
-			AR: 'assault rifle',
-			SMG: 'submachine gun',
-			SR: 'sniper rifle',
-			RL: 'rocket launcher',
-			FT: 'flame thrower',
-			GL: 'grenade launcher',
-			RG: 'railgun',
-			MT: 'mortar',
-		};
-		return weaponTypeMapping[categoryValue as WeaponType] || categoryValue;
 	}
 
 	if (categoryName === 'releaseDate') {
@@ -91,12 +73,13 @@ export function handleCategoryValue(
 	return categoryValue;
 }
 
-// categories to doesn't display on character info:
+// categories that don't display on character info:
 const categoriesBlackList: (keyof Student)[] = [
 	'charaName',
 	'pageUrl',
-	'pageImageProfileUrl',
-	'pageImageFullUrl',
+	'imageProfileUrl',
+	'imageFullUrl',
+	'smallImageUrl',
 	'audioUrl',
 	'createdAt',
 ];
@@ -109,8 +92,9 @@ export const categoriesNoUrl: (keyof Student)[] = [
 	'hobbies',
 	'voice',
 	'createdAt',
-	'pageImageFullUrl',
-	'pageImageProfileUrl',
+	'imageFullUrl',
+	'imageProfileUrl',
+	'smallImageUrl',
 	'audioUrl',
 	'pageUrl',
 	'age',

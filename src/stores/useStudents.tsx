@@ -4,7 +4,7 @@
 /*
 export function useStudents() {
 	const { data: students = [], error } =
-		useFetch<Student[]>(`/data/students.json`);
+		useFetch<Student[]>(`/data/data.json`);
 
 	return { students, error };
 }
@@ -25,7 +25,7 @@ const StudentsContext = createContext<{
 // Proveedor de contexto
 export function StudentsProvider({ children }: { children: React.ReactNode }) {
 	const { data: students = [], error } =
-		useFetch<Student[]>(`/data/students.json`);
+		useFetch<Student[]>(`/data/data.json`);
 
 	return (
 		<StudentsContext.Provider value={{ students, error }}>
